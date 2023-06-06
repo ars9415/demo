@@ -12,5 +12,5 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
       - run: |
-          echo "Hello World!"
+          echo: "Hello World!"
           echo: "Goodbye!"
