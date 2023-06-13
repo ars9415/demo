@@ -2,11 +2,11 @@ name: Understanding Matrix
 on: push
 jobs:
   node:
-    strategy:
-      matrix:
-        node-version: [12, 14, 16]
-        operating-systems: [ubuntu-latest, windows-latest]
-    runs-on: ${{ matrix.operating-systems }}
+#     strategy:
+#       matrix:
+#         node-version: [12, 14, 16]
+#         operating-systems: [ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: Checking out code onto the Runner
         uses: actions/checkout@v3
@@ -14,7 +14,7 @@ jobs:
       - name: Setting up NodeJS
         uses: actions/setup-node@v3
         with: 
-          node-version: ${{ matrix.node-version }}
+          node-version: '16'
         
       - name: Inatalling Dependencies
         run: npm ci
