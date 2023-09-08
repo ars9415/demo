@@ -1,0 +1,19 @@
+{
+	"name": "pipeline-01",
+	"properties": {
+		"description": "source pipeline",
+		"activities": [
+			{
+				"name": "pipeline-1",
+				"type": "Fail",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"message": "failed pipeline",
+					"errorCode": "404"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
