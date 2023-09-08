@@ -1,18 +1,49 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GithubActions
-on: [pull_request]
+on:
+  push:
+    branches:
+    - main
+permissions:
+      id-token: write
+      contents: read
+
 jobs:
-  check-bats-version:
+  deploy-to-qa:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
-      - run: bats -v
-      - run: |
-          echo "Hello World!"
-          echo "Goodbye!"
-          echo "Hie"
-          echo "Kya haal chal"
+    - name: Checking out the repo
+      uses: actions/checkout@v3
+      with:
+        ref: adf_publish
+        
+    
+# #     - name: install ADF Utilities package
+# #       run: npm install
+# #       working-directory: ${{github.workspace}}
+      
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        enable-AzPSSession: true 
+
+#     - name: data-factory-deploy
+#       uses: Azure/data-factory-deploy-action@v1.2.0
+#       with:
+#         resourceGroupName: new-rg
+#         dataFactoryName: ad-gh-actions-2
+#         armTemplateFile: adf-gh-dev/ARMTemplateForFactory.json
+#         additionalParameters: 'factoryName=adf-gh-qa'
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: adf-gh
+        template: source-adf/ARMTemplateForFactory.json
+        parameters: 'factoryName=destination-adf'
+  
+
+
+     
+  
+
