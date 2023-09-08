@@ -5,6 +5,12 @@
 		"factoryName": {
 			"value": "source-adf"
 		},
+		"sourceadf_accountKey": {
+			"value": ""
+		},
+		"sourceadf_properties_typeProperties_url": {
+			"value": "https://storage9415.dfs.core.windows.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},
