@@ -28,19 +28,19 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         enable-AzPSSession: true 
 
-    - name: data-factory-deploy
-      uses: Azure/data-factory-deploy-action@v1.2.0
-      with:
-        resourceGroupName: adf-gh
-        dataFactoryName: destination-adf
-        armTemplateFile: source-adf/ARMTemplateForFactory.json
-        additionalParameters: 'factoryName=destination-adf'
-    # - name: Run ARM deploy
-    #   uses: azure/arm-deploy@v1
+    # - name: data-factory-deploy
+    #   uses: Azure/data-factory-deploy-action@v1.2.0
     #   with:
     #     resourceGroupName: adf-gh
-    #     template: source-adf/ARMTemplateForFactory.json
-    #     parameters: 'factoryName=destination-adf'
+    #     dataFactoryName: destination-adf
+    #     armTemplateFile: source-adf/ARMTemplateForFactory.json
+    #     additionalParameters: 'factoryName=destination-adf'
+    - name: Run ARM deploy
+      uses: azure/arm-deploy@v1
+      with:
+        resourceGroupName: adf-gh
+        template: source-adf/ARMTemplateForFactory.json
+        parameters: 'factoryName=destination-adf'
   
 
 
