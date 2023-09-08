@@ -33,8 +33,8 @@ jobs:
       with:
         resourceGroupName: adf-gh
         dataFactoryName: destination-adf
-        template: source-adf/ARMTemplateForFactory.json
-        parameters: 'factoryName=destination-adf'
+        armTemplateFile: source-adf/ARMTemplateForFactory.json
+        additionalParameters: 'factoryName=destination-adf'
     # - name: Run ARM deploy
     #   uses: azure/arm-deploy@v1
     #   with:
