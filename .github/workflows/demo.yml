@@ -31,7 +31,7 @@ jobs:
     - name: data-factory-deploy
       uses: Azure/data-factory-deploy-action@v1.2.0
       with:
-        resourceGroupName: new-rg
+        resourceGroupName: adf-gh
         dataFactoryName: destination-adf
         armTemplateFile: source-adf/ARMTemplateForFactory.json
         additionalParameters: 'factoryName=destination-adf'
