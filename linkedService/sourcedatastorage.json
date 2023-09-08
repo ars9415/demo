@@ -1,0 +1,13 @@
+{
+	"name": "sourcedatastorage",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "azure data storage for source data factory",
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://storage9415.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDgwNjYyMjY2LUM5NjQtNDdBRC04ODlGLTVCRjlCMjMzNTk0N19lMjFhZTRmOS1lZDY2LTQ2ZTAtOGM1ZS1jYjgxN2Q2OTAyZjUiDQp9"
+		}
+	}
+}
