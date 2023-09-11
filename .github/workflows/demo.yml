@@ -10,7 +10,7 @@ jobs:
   deploy-to-qa:
     runs-on: ubuntu-latest
     env:
-      INS_LS_stgithub_connectionString: DefaultEndpointsProtocol=https;AccountName=${{ INS_LS_stgithub }};EndpointSuffix=core.windows.net
+      INS_LS_stgithub_connectionString: aditya
     environment:
       name: production
     steps:
