@@ -9,6 +9,8 @@ permissions:
 jobs:
   deploy-to-qa:
     runs-on: ubuntu-latest
+    env:
+      INS_LS_stgithub_connectionString: DefaultEndpointsProtocol=https;AccountName=${{ INS_LS_stgithub }};EndpointSuffix=core.windows.net
     environment:
       name: production
     steps:
@@ -17,6 +19,8 @@ jobs:
     - name: Using the environment variables in our job
       run: |
         echo "The value of the production variable is: ${{ vars.INS_LS_stgithub }}"
+        echo: "${{ env.INS_LS_stgithub_connectionString }}"
+        
       
       
       
