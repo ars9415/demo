@@ -12,21 +12,21 @@ jobs:
     steps:
     - name: Checking out the repo
       uses: actions/checkout@v3
-      with:
-        ref: adf_publish
+      # with:
+      #   ref: adf_publish
         
     
 # #     - name: install ADF Utilities package
 # #       run: npm install
 # #       working-directory: ${{github.workspace}}
       
-    - name: Login via Az module
-      uses: azure/login@v1
-      with:
-        client-id: ${{ secrets.AZURE_CLIENT_ID }}
-        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        enable-AzPSSession: true 
+    # - name: Login via Az module
+    #   uses: azure/login@v1
+    #   with:
+    #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
+    #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+    #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    #     enable-AzPSSession: true 
 
     # - name: data-factory-deploy
     #   uses: Azure/data-factory-deploy-action@v1.2.0
@@ -35,12 +35,15 @@ jobs:
     #     dataFactoryName: destination-adf
     #     armTemplateFile: source-adf/ARMTemplateForFactory.json
     #     additionalParameters: 'factoryName=destination-adf'
-    - name: Run ARM deploy
-      uses: azure/arm-deploy@v1
-      with:
-        resourceGroupName: adf-gh
-        template: source-adf/ARMTemplateForFactory.json
-        parameters: 'factoryName=destination-adf'
+    # - name: Run ARM deploy
+    #   uses: azure/arm-deploy@v1
+    #   with:
+    #     resourceGroupName: adf-gh
+    #     template: source-adf/ARMTemplateForFactory.json
+    #     parameters: 'factoryName=destination-adf'
+    - name: Using the environment variables in our job
+      run: |
+        echo "The value of the production variable is: ${{ env.production }}
   
 
 
