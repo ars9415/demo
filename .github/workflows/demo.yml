@@ -9,9 +9,17 @@ permissions:
 jobs:
   deploy-to-qa:
     runs-on: ubuntu-latest
+    environment:
+      name: production
     steps:
     - name: Checking out the repo
       uses: actions/checkout@v3
+    - name: Using the environment variables in our job
+      run: |
+        echo "The value of the production variable is: ${{ vars.INS_LS_stgithub }}"
+      
+      
+      
       # with:
       #   ref: adf_publish
         
@@ -42,8 +50,10 @@ jobs:
     #     template: source-adf/ARMTemplateForFactory.json
     #     parameters: 'factoryName=destination-adf'
     - name: Using the environment variables in our job
+      environment:
+        
       run: |
-        echo "The value of the production variable is: ${{ env.production }}
+        echo "The value of the production variable is: ${{ env.production }}"
   
 
 
