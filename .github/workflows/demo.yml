@@ -49,11 +49,11 @@ jobs:
     #     resourceGroupName: adf-gh
     #     template: source-adf/ARMTemplateForFactory.json
     #     parameters: 'factoryName=destination-adf'
-    - name: Using the environment variables in our job
-      environment:
+    # - name: Using the environment variables in our job
+    #   environment:
         
-      run: |
-        echo "The value of the production variable is: ${{ env.production }}"
+    #   run: |
+    #     echo "The value of the production variable is: ${{ env.production }}"
   
 
 
