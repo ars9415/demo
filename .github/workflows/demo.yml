@@ -10,7 +10,7 @@ jobs:
   deploy-to-qa:
     runs-on: ubuntu-latest
     env:
-      INS_LS_stgithub_connectionString: aditya
+      INS_LS_stgithub_connectionString: AccountName=${{ vars.INS_LS_stgithub }}
     environment:
       name: production
     steps:
