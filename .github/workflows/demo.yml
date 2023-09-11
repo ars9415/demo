@@ -19,7 +19,7 @@ jobs:
     - name: Using the environment variables in our job
       run: |
         echo "The value of the production variable is: ${{ vars.INS_LS_stgithub }}"
-        echo: "${{ env.INS_LS_stgithub_connectionString }}"
+        echo "The value of job level env variable is : ${{ env.INS_LS_stgithub_connectionString }}"
         
       
       
